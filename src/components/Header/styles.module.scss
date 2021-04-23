@@ -1,0 +1,109 @@
+.darkTheme {
+  --headBackground: var(--purple-990);
+  --borderColor: var(--gray-500);
+  --primaryColor: var(--gray-800);
+  --secondaryColor: var(--gray-100);
+}
+.naturalTheme {
+  --headBackground: var(--white);
+  --borderColor: var(--gray-100);
+  --primaryColor: var(--gray-800);
+  --secondaryColor: var(--gray-500);
+}
+
+.headerContainer {
+  background: var(--headBackground);
+  height: 6.5rem;
+
+  display: flex;
+  align-items: center;
+
+  padding: 2rem 4rem;
+
+  border-bottom: 1px solid var(--borderColor);
+  color: var(--secondaryColor);
+  transition: 1s;
+
+  p {
+    margin-left: 2rem;
+    padding: 0.25rem 0 0.25rem 2rem;
+    border-left: 1px solid var(--borderColor);
+  }
+
+  span {
+    margin-left: auto;
+    text-transform: capitalize;
+    transform: translate(0, 0%);
+
+    display: flex;
+    align-items: center;
+
+    label {
+      position: relative;
+      top: 0rem;
+      left: 2rem;
+      display: inline-block;
+      width: 3rem;
+      height: 1.5rem;
+      border-radius: 1rem;
+      overflow: visible;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: 0.4s;
+        border-radius: 1.5rem;
+
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        width: 2.3rem;
+        height: 2.3rem;
+        left: 0px;
+        bottom: 0px;
+        top: 0px;
+        bottom: 0;
+        margin: auto 0;
+        transition: 0.4s;
+        box-shadow: 0 0px 20px var(--primaryColor);
+        background: #FFDE55 url('/lightTheme.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+      }
+
+      input + .slider {
+        box-shadow: 0 0px 10px var(--gray-800);
+      }
+
+      input:checked + .slider {
+        background-color: var(--gray-800);
+        box-shadow: 0 0px 10px var(--borderColor);
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 10px var(--green-500);
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(1rem);
+        background: var(--gray-800) url('/darkTheme.png');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+}
+
